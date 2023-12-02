@@ -18,6 +18,7 @@ import AddProduct from "./pages/admin/pages/AddProduct";
 import UpdateProduct from "./pages/admin/pages/UpdateProduct";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Allproducts from './pages/allproducts/AllProducts';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          
+          <Route path="/allproducts" element={<Allproducts />} />
           <Route path="/order" element={
             <ProtectedRoute>
                 <Order/>
@@ -66,13 +67,14 @@ function App() {
 
 export default App;
 
+
 // ===================>     User (Protected Route)    <======================
 
 // eslint-disable-next-line react/prop-types
 export const ProtectedRoute = ({ children }) => {
-  const user = localStorage.getItem("user");
+  const user = localStorage.getItem('user');
   if (user) {
-    return children;
+    return children
   } else {
     return <Navigate to={'/login'} />
   }
