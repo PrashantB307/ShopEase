@@ -8,3 +8,18 @@ import { Timestamp, addDoc, collection } from 'firebase/firestore';
 import Loader from '../../components/loader/Loader'
 
 
+function Signup() {
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const context = useContext(myContext);
+    const {loading, setLoading} = context;
+
+    //========> Name , Email, Passsword Validation  <=========
+
+    
+}
+
+export default Signup
