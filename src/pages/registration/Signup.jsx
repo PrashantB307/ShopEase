@@ -19,6 +19,38 @@ function Signup() {
 
     //========> Name , Email, Passsword Validation  <=========
 
+    const signup = async () => {
+
+        setLoading(true);
+
+        if(name === "" || email === "" || password === ""){
+            return toast.error("All Feilds are Required");
+        }
+
+        try {
+            const users = await createUserWithEmailAndPassword(auth, email, password);
+
+            const user = {
+                name : name,
+                uid : users.user.uid,
+                email : users.user.email,
+                time : Timestamp.now()
+            }
+
+            const userRef = collection(firedb, "users")
+            await addDoc(userRef, user);
+            toast.success("Signup Successfully")
+            setName("");
+            setEmail("");
+            setPassword("");
+            setLoading(false);
+
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+    }
+
     
 }
 
