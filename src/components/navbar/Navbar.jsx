@@ -309,9 +309,8 @@ function Navbar() {
                     ) : // eslint-disable-next-line no-constant-condition
                     "dark" ? (
                       <BsFillCloudSunFill size={30} />
-                    ) : (
-                      ""
-                    )}
+                    ) : ''
+                    }
                   </button>
                 </div>
 
